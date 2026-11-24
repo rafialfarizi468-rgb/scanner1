@@ -3,44 +3,54 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0f5a47">
 <title>Scanner Absensi</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#16243a;--muted:#5d6b7e;--line:#dfe5e0;--bg:#eef2ee;--green:#0e6b52;--green-d:#0a4f3c;--green-l:#dcefe7;--yellow:#f2b705;--yellow-l:#fff3cc;--red:#c2362f;--red-l:#fbe3e1}
+:root{color-scheme:light;--ink:#1d1a2b;--muted:#6b6880;--line:#e5e1ee;--bg2:#f6f4fb;
+--green:#0f5a47;--green-l:#e1f1ec;--purple:#6d3fc0;--purple-d:#5a30a6;--purple-l:#efe8fb;--yellow:#e0a100;--yellow-l:#fff3cc;--yellow-t:#7a5700;--red:#c2362f;--red-l:#fbe3e1;--red-t:#a42a24}
 *{box-sizing:border-box}
 html,body{margin:0}
-body{font-family:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--ink);font-size:15px;line-height:1.5;padding-bottom:env(safe-area-inset-bottom)}
+body{font-family:'Plus Jakarta Sans',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;color:var(--ink);font-size:15px;line-height:1.5;min-height:100vh;padding-bottom:env(safe-area-inset-bottom);
+background:radial-gradient(800px 420px at 100% -8%,rgba(109,63,192,.07),transparent 60%),radial-gradient(700px 420px at -8% 108%,rgba(15,90,71,.06),transparent 55%),#fff;background-attachment:fixed}
 button,input,select{font:inherit;color:inherit}
 .hidden{display:none!important}
 .muted{color:var(--muted)}
 .wrap{max-width:520px;margin:0 auto;padding:16px}
-.card{background:#fff;border-radius:16px;padding:18px;margin-bottom:14px;box-shadow:0 1px 3px rgba(22,36,58,.08)}
-h1{font-size:1.3rem;margin:0 0 4px}
-label{display:block;font-weight:600;font-size:.85rem;margin:12px 0 5px}
-input,select{width:100%;padding:12px;border:1.5px solid var(--line);border-radius:10px;background:#fff}
-input:focus,select:focus,button:focus-visible{outline:3px solid rgba(14,107,82,.25);border-color:var(--green)}
-.btn{background:var(--green);color:#fff;border:0;padding:12px 18px;border-radius:10px;font-weight:700;cursor:pointer}
-.btn:hover{background:var(--green-d)}
-.btn.ghost{background:#fff;color:var(--green);border:1.5px solid var(--green)}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;margin-bottom:14px;box-shadow:0 4px 18px rgba(60,40,110,.08)}
+h1{font-size:1.35rem;margin:0 0 2px}
+.logo{width:44px;height:44px;object-fit:contain;flex:0 0 auto}
+.logo.xl{width:60px;height:60px}
+label{display:block;font-weight:600;font-size:.85rem;margin:12px 0 5px;color:#3b3752}
+input,select{width:100%;padding:12px;border:1.5px solid #d9d4e6;border-radius:10px;background:#fff;color:var(--ink)}
+input::placeholder{color:#9b97ad}
+input:focus,select:focus,button:focus-visible{outline:3px solid rgba(109,63,192,.25);border-color:var(--purple)}
+.btn{background:linear-gradient(135deg,#0f5a47,#16735b);color:#fff;border:0;padding:12px 18px;border-radius:10px;font-weight:800;cursor:pointer;box-shadow:0 4px 14px rgba(15,90,71,.25)}
+.btn:hover{filter:brightness(1.1)}
+.btn.ghost{background:#fff;color:var(--purple-d);border:1.5px solid #8c63d6;box-shadow:none}
+.btn.ghost:hover{background:var(--purple-l)}
 .btn.block{width:100%;margin-top:16px}
 .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
 .row>*{flex:1 1 auto}
-.login-top{background:var(--green);color:#fff;border-radius:16px;padding:22px;margin-bottom:14px;position:relative;overflow:hidden}
-.login-top::after{content:"";position:absolute;right:-26px;top:-26px;width:96px;height:96px;border-radius:50%;background:var(--yellow)}
-.bar{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:12px}
-.bar b{display:block}
-.clock{font-weight:800;font-size:1.4rem;letter-spacing:.5px}
-#reader{width:100%;border-radius:14px;overflow:hidden;background:#0d1520;min-height:260px}
-.res{margin:14px 0;padding:18px;border-radius:14px;background:var(--bg);text-align:center;font-weight:600;border:2px dashed var(--line)}
+.login-top{display:flex;gap:14px;align-items:center;color:#fff;border-radius:18px;padding:22px;margin-bottom:14px;position:relative;overflow:hidden;
+background:linear-gradient(135deg,#0c3b30 0%,#1e3f5a 45%,#3a2a78 100%)}
+.login-top::after{content:"";position:absolute;right:-36px;top:-36px;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,rgba(246,185,43,.6),transparent 70%)}
+.login-top div{opacity:.92}
+.bar{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:12px}
+.bar .who{display:flex;gap:10px;align-items:center}
+.bar b{display:block;line-height:1.2}
+.clock{font-weight:800;font-size:1.4rem;letter-spacing:.5px;color:var(--purple-d)}
+#reader{width:100%;border-radius:14px;overflow:hidden;background:#101a17;min-height:260px;border:1px solid var(--line)}
+.res{margin:14px 0;padding:18px;border-radius:14px;background:var(--bg2);text-align:center;font-weight:600;border:2px dashed #cfc8e0}
 .res big{display:block;font-size:1.35rem;margin-bottom:2px}
-.res.ok{background:var(--green-l);border:2px solid var(--green);color:var(--green-d)}
-.res.err{background:var(--red-l);border:2px solid var(--red);color:#7c1d18}
-.res.dup{background:var(--yellow-l);border:2px solid var(--yellow);color:#6a4e00}
-.bdg{display:inline-block;padding:1px 9px;border-radius:99px;font-size:.78rem;font-weight:700;background:#e8ecf1}
-.bdg.hadir{background:var(--green-l);color:var(--green-d)}.bdg.terlambat{background:var(--yellow-l);color:#7a5a00}.bdg.alfa{background:var(--red-l);color:var(--red)}
+.res.ok{background:var(--green-l);border:2px solid #16735b;color:var(--green)}
+.res.err{background:var(--red-l);border:2px solid var(--red);color:var(--red-t)}
+.res.dup{background:var(--yellow-l);border:2px solid var(--yellow);color:var(--yellow-t)}
+.bdg{display:inline-block;padding:1px 9px;border-radius:99px;font-size:.78rem;font-weight:700;background:#eceaf3;color:#55526b}
+.bdg.hadir{background:var(--green-l);color:var(--green)}.bdg.terlambat{background:var(--yellow-l);color:var(--yellow-t)}.bdg.alfa{background:var(--red-l);color:var(--red-t)}
 .log div{padding:7px 0;border-bottom:1px solid var(--line)}
-.err-msg{color:var(--red);font-weight:600;margin-top:10px}
+.err-msg{color:var(--red-t);font-weight:600;margin-top:10px}
 </style>
 </head>
 <body>
@@ -51,17 +61,24 @@ input:focus,select:focus,button:focus-visible{outline:3px solid rgba(14,107,82,.
 /* ============================================================
    ISI DENGAN URL WEB APP APPS SCRIPT KAMU (yang berakhiran /exec)
    ============================================================ */
-const API_URL = 'https://script.google.com/macros/s/AKfycbybiMJ41q3FOnmvSOnt3fJInJqrjN7NGLSv7gDTK1ZpRauSdw_YgGfG3vJcRXwgMqh1/exec';
+const API_URL = 'https://script.google.com/macros/s/AKfycbzI8OL5U7ydxv5EIQxBWiA-sCad20ISvU__dN5eeoI/dev';
 
+let BRAND = { sekolah: 'SMKN 1 Gunung Sindur', logo: '' };
+const defaultLogo = c => `<svg class="${c}" viewBox="0 0 64 64" role="img" aria-label="Logo sekolah"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0f5a47"/><stop offset="1" stop-color="#6d3fc0"/></linearGradient></defs><path d="M32 4 56 12v18c0 14-10 25-24 30C18 55 8 44 8 30V12z" fill="url(#lg)"/><text x="32" y="38" text-anchor="middle" font-family="Arial,sans-serif" font-weight="800" font-size="16" fill="#ffffff">SMK</text></svg>`;
+const logoHtml = c => BRAND.logo ? `<img class="${c}" src="${BRAND.logo}" alt="Logo sekolah">` : defaultLogo(c);
+function repaintBrand() { document.querySelectorAll('.brandslot').forEach(e => { e.innerHTML = logoHtml(e.dataset.c || 'logo'); }); document.querySelectorAll('.brandname').forEach(e => { e.textContent = BRAND.sekolah; }); }
 let TOKEN = null, USER = null, scanner = null, facing = 'environment', lastCode = '', lastT = 0, clockTimer = null;
 const $ = s => document.querySelector(s);
 const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
 async function api(action, payload) {
   if (!/^https:\/\/script\.google\.com\//.test(API_URL)) throw new Error('URL web app belum diisi di file scanner.html (baris API_URL).');
-  const r = await fetch(API_URL, { method: 'POST', redirect: 'follow', body: JSON.stringify({ action: action, token: TOKEN, payload: payload || {} }) });
-  const j = await r.json();
-  if (j && j.error) { if (j.expired) setTimeout(logout, 50); throw new Error(j.error); }
+  let j;
+  try {
+    const r = await fetch(API_URL, { method: 'POST', redirect: 'follow', body: JSON.stringify({ action: action, token: TOKEN, payload: payload || {} }) });
+    j = await r.json();
+  } catch (e) { const er = new Error('Tidak ada koneksi internet'); er.network = true; throw er; }
+  if (j && j.error) { const er = new Error(j.error); er.expired = !!j.expired; if (j.expired) setTimeout(logout, 50); throw er; }
   return j;
 }
 
@@ -69,7 +86,7 @@ async function api(action, payload) {
 function renderLogin(msg) {
   stopScan(); clearInterval(clockTimer);
   $('#app').innerHTML = `
-    <div class="login-top"><h1>Scanner Absensi</h1><div style="opacity:.85">Masuk sebagai guru atau admin</div></div>
+    <div class="login-top"><span class="brandslot" data-c="logo xl">${logoHtml('logo xl')}</span><div><h1>Scanner Absensi</h1><div class="brandname">${esc(BRAND.sekolah)}</div><div style="font-size:.85rem">Masuk sebagai guru atau admin</div></div></div>
     <div class="card">
       <label for="role">Peran</label><select id="role"><option value="guru">Guru / Wali Kelas</option><option value="admin">Admin</option></select>
       <label for="uid">ID Guru / Username</label><input id="uid" autocomplete="username" autocapitalize="none">
@@ -99,7 +116,7 @@ function logout() {
 /* ---------- scanner ---------- */
 function renderScanner() {
   $('#app').innerHTML = `
-    <div class="bar"><div><b>${esc(USER.name)}</b><span class="muted">Scanner absensi</span></div><div class="clock" id="clock"></div></div>
+    <div class="bar"><div class="who"><span class="brandslot" data-c="logo">${logoHtml('logo')}</span><div><b>${esc(USER.name)}</b><span class="muted brandname">${esc(BRAND.sekolah)}</span></div></div><div style="text-align:right"><div class="clock" id="clock"></div><span class="bdg hidden" id="qbadge"></span></div></div>
     <div class="card">
       <div id="reader"></div>
       <div class="row" style="margin-top:12px">
@@ -119,21 +136,53 @@ function renderScanner() {
   $('#bman').onclick = () => { const v = $('#mn').value.trim(); if (v) { sendScan(v); $('#mn').value = ''; } };
   $('#bout').onclick = logout;
   tick(); clearInterval(clockTimer); clockTimer = setInterval(tick, 1000);
+  paintQ(); flushQ();
   startScan();
 }
 function tick() { const c = $('#clock'); if (c) c.textContent = new Date().toTimeString().slice(0, 8); }
 
+function errText(e) {
+  const raw = String((e && (e.message || e.name)) || e || '');
+  const l = raw.toLowerCase();
+  let msg;
+  if (l.includes('notallowed') || l.includes('permission') || l.includes('denied')) msg = 'Izin kamera ditolak. Klik ikon gembok di samping alamat, ubah Kamera menjadi Izinkan, lalu muat ulang halaman. Di Windows, cek juga Settings > Privacy & security > Camera.';
+  else if (l.includes('notfound') || l.includes('not found') || l.includes('no camera') || l.includes('requested device')) msg = 'Perangkat ini tidak mendeteksi kamera (laptop/PC tanpa webcam?). Buka halaman ini dari HP.';
+  else if (l.includes('notreadable') || l.includes('could not start') || l.includes('in use') || l.includes('busy')) msg = 'Kamera sedang dipakai aplikasi atau tab lain. Tutup Zoom/Meet/aplikasi Camera, lalu tekan "Mulai kamera" lagi.';
+  else if (l.includes('secure') || l.includes('https')) msg = 'Halaman harus dibuka lewat https agar kamera bisa dipakai.';
+  else msg = 'Kamera tidak bisa dibuka.';
+  return { msg: msg, raw: raw };
+}
+async function tryStart(camera) {
+  const s = new Html5Qrcode('reader');
+  try {
+    await s.start(camera, { fps: 10, qrbox: (w, h) => { const m = Math.floor(Math.min(w, h) * 0.75); return { width: m, height: m }; } }, onScan, () => {});
+    scanner = s; return;
+  } catch (e) { try { s.clear(); } catch (x) {} throw e; }
+}
 async function startScan() {
   if (scanner) return;
-  try {
-    scanner = new Html5Qrcode('reader');
-    await scanner.start({ facingMode: { ideal: facing } }, { fps: 10, qrbox: (w, h) => { const m = Math.floor(Math.min(w, h) * 0.75); return { width: m, height: m }; } }, onScan, () => {});
-  } catch (e) {
-    scanner = null;
-    const el = $('#res'); if (!el) return;
-    el.className = 'res err';
-    el.innerHTML = '<big>❌ Kamera tidak bisa dibuka</big>Izinkan akses kamera di browser (ikon gembok di samping alamat), pastikan halaman dibuka lewat https, lalu tekan "Mulai kamera" lagi.';
+  const el = $('#res');
+  if (el) { el.className = 'res'; el.textContent = 'Membuka kamera...'; }
+  if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+    if (el) { el.className = 'res err'; el.innerHTML = '<big>❌ Kamera tidak didukung</big>Browser ini tidak mendukung kamera, atau halaman tidak dibuka lewat https. Coba Chrome atau Safari terbaru.'; }
+    return;
   }
+  let lastErr = null;
+  // 1) coba kamera sesuai arah (belakang/depan), 2) coba kamera apa pun yang terdeteksi
+  const attempts = [{ facingMode: { ideal: facing } }, { facingMode: facing }];
+  for (const c of attempts) {
+    try { await tryStart(c); if (el) { el.className = 'res'; el.textContent = 'Kamera aktif. Arahkan ke QR siswa'; } return; } catch (e) { lastErr = e; }
+  }
+  try {
+    const cams = await Html5Qrcode.getCameras();
+    if (!cams || !cams.length) throw new Error('NotFoundError: no camera');
+    const back = cams.find(c => /back|rear|belakang|environment/i.test(c.label));
+    await tryStart((back || cams[0]).id);
+    if (el) { el.className = 'res'; el.textContent = 'Kamera aktif. Arahkan ke QR siswa'; }
+    return;
+  } catch (e) { lastErr = e; }
+  const t = errText(lastErr);
+  if (el) { el.className = 'res err'; el.innerHTML = '<big>❌ Kamera tidak bisa dibuka</big>' + esc(t.msg) + '<div class="muted" style="font-size:.78rem;margin-top:8px;font-weight:500">Kode: ' + esc(t.raw) + '</div>'; }
 }
 async function stopScan() {
   if (scanner) { try { await scanner.stop(); scanner.clear(); } catch (e) {} scanner = null; }
@@ -153,9 +202,54 @@ function beep(ok) {
   if (navigator.vibrate) navigator.vibrate(ok ? 80 : [120, 60, 120]);
 }
 
+/* ---- Antrean offline: scan disimpan di HP saat sinyal putus, dikirim otomatis saat kembali ---- */
+function getQ() { try { return JSON.parse(localStorage.getItem('scan_q') || '[]'); } catch (e) { return []; } }
+function setQ(q) { try { localStorage.setItem('scan_q', JSON.stringify(q)); } catch (e) {} paintQ(); }
+function paintQ() {
+  const b = $('#qbadge'); if (!b) return;
+  const n = getQ().length;
+  b.textContent = n ? n + ' menunggu terkirim' : '';
+  b.classList.toggle('hidden', !n);
+}
+let flushing = false;
+async function flushQ() {
+  if (flushing || !TOKEN) return;
+  flushing = true;
+  try {
+    let q = getQ();
+    while (q.length) {
+      const it = q[0];
+      try {
+        const r = await api('scan', { code: it.code, at: it.at });
+        q.shift(); setQ(q); addLog(r, true);
+      } catch (e) {
+        if (e.network || e.expired) break;          // coba lagi nanti
+        q.shift(); setQ(q); addLog({ ok: false, msg: e.message }, true);   // QR tidak valid: buang
+      }
+    }
+  } finally { flushing = false; }
+}
+function addLog(r, offline) {
+  const log = $('#log'); if (!log) return;
+  if (log.classList.contains('muted')) { log.classList.remove('muted'); log.innerHTML = ''; }
+  log.insertAdjacentHTML('afterbegin', `<div>${new Date().toTimeString().slice(0, 5)} · <b>${esc(r.nama || 'Tidak dikenal')}</b> ${r.status ? `<span class="bdg ${esc(String(r.status).toLowerCase())}">${esc(r.status)}</span>` : ''} <span class="muted">${offline ? '(terkirim dari antrean) ' : ''}${r.ok ? '' : esc(r.msg || '')}</span></div>`);
+}
+window.addEventListener('online', flushQ);
+setInterval(flushQ, 8000);
+
 async function sendScan(code) {
-  let r;
-  try { r = await api('scan', { code: code }); } catch (e) { r = { ok: false, error: true, msg: e.message }; }
+  let r; const at = Date.now();
+  try { r = await api('scan', { code: code, at: at }); }
+  catch (e) {
+    if (e.network) {
+      const q = getQ(); q.push({ code: code, at: at }); setQ(q);
+      const el0 = $('#res');
+      if (el0) { el0.className = 'res dup'; el0.innerHTML = '<big>📡 Tersimpan offline</big>Sinyal tidak ada. Scan ini dikirim otomatis saat internet kembali (' + q.length + ' antrean).'; }
+      beep(true);
+      return;
+    }
+    r = { ok: false, error: true, msg: e.message };
+  }
   const el = $('#res'); if (!el) return;
   el.className = 'res ' + (r.ok ? 'ok' : (r.error || r.closed ? 'err' : 'dup'));
   el.innerHTML = `<big>${r.ok ? '✅' : r.error ? '❌' : '⚠️'} ${esc(r.nama || '')}</big>${r.kelas ? 'Kelas ' + esc(r.kelas) + ' · ' : ''}${esc(r.msg)}`;
@@ -167,6 +261,7 @@ async function sendScan(code) {
 
 /* ---------- mulai ---------- */
 (async function init() {
+  api('publicInfo').then(r => { BRAND = { sekolah: r.sekolah || BRAND.sekolah, logo: r.logo || '' }; repaintBrand(); }).catch(() => {});
   // 1) Dibuka dari aplikasi utama: tukar tiket sekali pakai menjadi sesi (tanpa login lagi)
   const m = location.hash.match(/[#&]k=([^&]+)/);
   if (m) {
